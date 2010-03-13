@@ -1,0 +1,5 @@
+bin
+vendor/gems/environment.rb
+vendor/gems/ruby/1.8/environment.rb
+vendor/gems/ruby/1.8/gems
+vendor/gems/ruby/1.8/specifications
