@@ -1,5 +1,6 @@
 # This is a watchr script, http://rubygems.org/gems/watchr
 
+watch('^bin/feeds')           { |m| ruby edge_to_edge }
 watch('^lib/(.*).rb')         { |m| ruby ["test/unit/#{m[1]}_test.rb"] + edge_to_edge }
 watch('^test/.*_test.rb')     { |m| ruby m[0] }
 watch('^test/test_helper.rb') { ruby all }

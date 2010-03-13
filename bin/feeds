@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+
+module Feeds
+  def self.public
+    Pathname.new('public')
+  end
+end
+
+Feeds.public.mkpath
+Feeds.public.join('feeds.atom').open('w') do |stream|
+
+end
