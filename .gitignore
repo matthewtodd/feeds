@@ -1,4 +1,5 @@
 bin/rg
+public
 vendor/environment.rb
 vendor/ruby/1.8/environment.rb
 vendor/ruby/1.8/gems

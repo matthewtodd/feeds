@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'builder'
 require 'pathname'
 
 module Feeds
@@ -10,5 +11,12 @@ end
 
 Feeds.public.mkpath
 Feeds.public.join('feeds.atom').open('w') do |stream|
+  xml = Builder::XmlMarkup.new(:target => stream, :indent => 2)
 
+  xml.instruct!
+  xml.feed :xmlns => 'http://www.w3.org/2005/Atom' do
+    xml.id 'tag:feeds.matthewtodd.org,2010:/feed.atom'
+    xml.title 'My Feeds'
+    xml.updated Time.now.utc.strftime('%Y-%m-%dT%H:%M:%S')
+  end
 end

@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'open3'
 
 class SystemTest < ActiveSupport::TestCase
   test 'running the application generates an atom feed' do
@@ -10,9 +9,16 @@ class SystemTest < ActiveSupport::TestCase
   private
 
   def assert_feed_valid(path)
-    Open3.popen3('xmllint', '--relaxng', ATOM_RELAX_NG_SCHEMA, path) do |_, stdout, stderr|
-      errors = stderr.readlines
-      assert errors.empty?, errors.join
+    assert_success "xmllint --relaxng #{ATOM_RELAX_NG_SCHEMA} #{path}"
+  end
+
+  def assert_success(command)
+    output = ''
+
+    IO.popen "#{command} 2>&1" do |io|
+      output = io.read
     end
+
+    assert_equal 0, $?.exitstatus, output
   end
 end
