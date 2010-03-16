@@ -15,7 +15,7 @@ Signal.trap('INT' ) { abort("\n") } # Ctrl-C
 # Helpers
 # --------------------------------------------------
 def ruby(*paths)
-  run "ruby -rvendor/gems/environment -Itest -e'%w(#{paths.flatten.join(' ')}).each {|p| require p }'"
+  run "ruby -rvendor/environment -Itest -e'%w(#{paths.flatten.join(' ')}).each {|p| require p }'"
 end
 
 def all
