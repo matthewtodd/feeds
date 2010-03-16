@@ -1,0 +1,10 @@
+The atom spec provides a compact-form Relax NG schema
+(http://atompub.org/2005/08/17/atom.rnc), but libxml (and, thus, Nokogiri) can
+only handle an xml-form Relax NG schema.
+
+I tried making the conversion myself with the python rnc2rng tool at
+http://www.gnosis.cx/download/relax/ but could not get it to work.
+
+Googling turned up an already-converted form at
+(http://www.asahi-net.or.jp/~eb2m-mrt/atomextensions/atom.rng) so that is what
+I'm using here.
